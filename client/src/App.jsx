@@ -1,15 +1,12 @@
 import { useState } from 'react'
-import dotenv from 'dotenv'
 
 import './App.css'
 
 function App() {
   const [ artworks, setArtworks ] = useState([])
 
-  dotenv.config()
-
   useState(async () => {
-    const url = `${process.env.API_BASE}/api/artworks`
+    const url = `${import.meta.env.VITE_API_BASE}/api/artworks`
     try { 
       const response = await fetch(url)
 
