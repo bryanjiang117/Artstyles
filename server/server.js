@@ -21,7 +21,6 @@ app.get('/api/artworks', async (req, res) => {
       FROM artworks   
     `)
 
-    console.log('DATA!!', data)
     res.json(data)
   } catch (error) {
     console.log('Failed to fetch artworks from database.', error.message)
