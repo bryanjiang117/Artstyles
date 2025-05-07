@@ -25,6 +25,6 @@ app.get('/api/artworks', async (req, res) => {
     res.json(data)
   } catch (error) {
     console.log('Failed to fetch artworks.', error)
-    res.status(500).send('Database error while fetching artworks')
+    res.status(500).send('Database error while fetching artworks', error)
   }
 })
