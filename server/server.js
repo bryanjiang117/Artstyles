@@ -8,7 +8,7 @@ dotenv.config()
 const app = express()
 app.use(cors())
 
-const port = process.env.port 
+const port = process.env.PORT
 app.listen(port, console.log(`Server starting. Listening on port ${port}`))
 
 const pgp = pgPromise()
