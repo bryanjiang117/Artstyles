@@ -16,7 +16,7 @@ const db = pgp(process.env.DATABASE_URL)
 
 app.get('/api/artworks', async (req, res) => {
   try {
-    const data = await db.one(`
+    const data = await db.any(`
       SELECT permalink, preview_url 
       FROM artworks   
     `)
@@ -24,7 +24,7 @@ app.get('/api/artworks', async (req, res) => {
     console.log('DATA!!', data)
     res.json(data)
   } catch (error) {
-    console.log('Failed to fetch artworks.', error)
-    res.status(500).send('Database error while fetching artworks', error)
+    console.log('Failed to fetch artworks from database.', error.message)
+    res.status(500).json({ error: 'Database error', details: error.message })
   }
 })
